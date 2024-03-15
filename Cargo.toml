@@ -1,0 +1,18 @@
+[package]
+name = "dxva_diag"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+anyhow = "1.0.79"
+itertools = "0.12.1"
+serde = { version = "1.0.197", features = ["derive"] }
+serde_json = "1.0.114"
+windows = { version = "0.52.0", features = ["Win32_Foundation", "Win32_Graphics_Direct3D9", "Win32_Media_DirectShow", "Win32_Media_MediaFoundation", "Win32_UI", "Win32_UI_WindowsAndMessaging"] }
+
+[profile.release]
+opt-level = "z"
+lto = true
+strip = "debuginfo"
+# codegen-units = 1
+# panic = "abort"
